@@ -43,6 +43,13 @@ map("", "<C-s>", ":w <CR>")
 -- Close file
 map("", "<Leader>q", ":q <CR>")
 
+-- Copy relative path (relative to where the buffer was open)
+map("", "<Leader>c", ":let @+=expand('%') <CR>") 
+-- Copy full path 
+map("", "<Leader>a", ":let @+=expand('%:p') <CR>") 
+-- Copy filename
+map("", "<Leader>n", ":let @+=expand('%:t') <CR>") 
+
 -- Tabs
 map("n", "<C-l>h", ":tabr<CR>")
 map("n", "<C-l>l", ":tabl<CR>")
@@ -60,3 +67,5 @@ map("i", "<A-;>", "<C-o>A;")
 map("n", "<CR>", "o<C-[>")
 map("n", "<Leader>O", "o<C-[>")
 
+-- Visually select all lines
+map("n", "<C-a>", "ggVG")
