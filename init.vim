@@ -1,6 +1,5 @@
 lua require('init')
 
-
 " Cursor doesn't stick to top or bottom but stays away from it for 'n' lines
 set scrolloff=4
 " Shows file type at the bottom
@@ -19,14 +18,16 @@ set splitbelow
 " Makes search in files not include filename itself
 " TODO: make a lua function for it
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-" Commentaries at the beggining of lines
+" Commentaries at the beginning of lines
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 " Temporal all comments are jsx-like for nerdcommenter while I'm fixing the
 " issue
 let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '{/*', 'right': '*/}' } , 'javascriptreact': { 'left': '{/*', 'right': '*/}' }}
+
 " Encoding for vim-devicons
 set encoding=UTF-8
+
 " Shows relative numbers only in navigation mode
 " TODO: make a lua function for it
 :augroup numbertoggle
@@ -34,11 +35,26 @@ set encoding=UTF-8
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
+
 " NERDTree show line numbers
 :let g:NERDTreeShowLineNumbers=1
 :autocmd BufEnter NERD_* setlocal rnu
 
+"Conjure fennel stdio
+let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+let g:conjure#mapping#doc_word = v:false
+
 call plug#begin()
+  " Harpoon
+  Plug 'nvim-lua/plenary.nvim' 
+  Plug 'ThePrimeagen/harpoon'
+  " Debugger
+  Plug 'mfussenegger/nvim-dap'
+  " Copilot
+  Plug 'github/copilot.vim'
+  " Spelling
+  Plug 'kamykn/popup-menu.nvim'
+  Plug 'kamykn/spelunker.vim'
   " Coc server
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Comments
@@ -62,6 +78,8 @@ call plug#begin()
   " info, should provide better syntax highlight for at least TS and lua)
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  " Treesitter context
+  Plug 'nvim-treesitter/nvim-treesitter-context'
   " Auto pairs and indent
   Plug 'jiangmiao/auto-pairs'
   " Fish syntax highligh
@@ -75,6 +93,12 @@ call plug#begin()
   Plug 'rebelot/kanagawa.nvim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'junegunn/seoul256.vim'
+  " Neovim Leap
+  Plug 'ggandor/leap.nvim'
+  " Fennel configuration
+  Plug 'Olical/conjure'
+  Plug 'Olical/nvim-local-fennel'
+  Plug 'Olical/aniseed'
 call plug#end()
 
 lua << EOF
@@ -114,10 +138,16 @@ require('nvim-treesitter.configs').setup {
   }
 EOF
 
+" Set terminal colors
 set t_Co=256
 syntax on
-" Day
-colorscheme kanagawa 
-set background=light
-" Night
-" colorscheme gruvbox 
+
+" Change theme depending on time
+" if strftime("%H") < 11  
+"   colorscheme kanagawa 
+"   set background=light
+" else
+  colorscheme gruvbox 
+" endif
+
+

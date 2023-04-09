@@ -1,4 +1,14 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "scss", "javascript", "graphql", "html", "typescript", "jsx", "tsx"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "scss",
+    "javascript",
+    "graphql",
+    "html",
+    "typescript",
+    "jsx",
+    "tsx"
+  ],
+  "snippets.ultisnips.pythonPrompt": false
 }
 
