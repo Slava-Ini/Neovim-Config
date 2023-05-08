@@ -45,6 +45,8 @@ let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 let g:conjure#mapping#doc_word = v:false
 
 call plug#begin()
+  " Undo tree
+  Plug 'mbbill/undotree'
   " Harpoon
   Plug 'nvim-lua/plenary.nvim' 
   Plug 'ThePrimeagen/harpoon'

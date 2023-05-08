@@ -9,6 +9,11 @@
     "jsx",
     "tsx"
   ],
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "rust.trace.server": "off",
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
+  }
 }
 

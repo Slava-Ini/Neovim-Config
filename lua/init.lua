@@ -4,6 +4,8 @@
 -- x - visual mode
 local map = require("utils").map
 
+-- Undo tree
+map("n", "<Leader>u", ":UndotreeToggle<CR>")
 -- Harpoon
 map("n", "<Leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 map("n", "<Leader>a", ":lua require('harpoon.mark').add_file()<CR>")
