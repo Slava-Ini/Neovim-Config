@@ -88,6 +88,8 @@ call plug#begin()
   Plug 'dag/vim-fish'
   " Rust
   Plug 'rust-lang/rust.vim'
+  " Go
+  Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
   " Themes
   Plug 'morhetz/gruvbox'
   Plug 'Mofiqul/vscode.nvim'

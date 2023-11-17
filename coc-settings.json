@@ -14,6 +14,6 @@
   "markdownlint.config": {
     "default": true,
     "line_length": false
-  }
+  },
+  "markdown-preview-enhanced.enableScriptExecution": true
 }
-
