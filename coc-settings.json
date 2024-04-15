@@ -15,5 +15,8 @@
     "default": true,
     "line_length": false
   },
-  "markdown-preview-enhanced.enableScriptExecution": true
+  "markdown-preview-enhanced.enableScriptExecution": true,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/17.0.3/clangd_17.0.3/bin/clangd",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
 }

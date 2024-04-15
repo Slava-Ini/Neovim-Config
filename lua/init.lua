@@ -70,6 +70,12 @@ map("n", "<C-n>", ":tabn<CR>")
 map("n", "<C-t>", ":tabnew<CR>")
 map("n", "<C-x>", ":tabc<CR>")
 
+-- Resize
+map("n", "<C-Up>", ":resize +5<CR>")
+map("n", "<C-Down>", ":resize -5<CR>")
+map("n", "<C-Left>", ":vertical resize +5<CR>")
+map("n", "<C-Right>", ":vertical resize -5<CR>")
+
 -- Insert semicolon in the end of line
 map("i", "<A-;>", "<C-o>A;")
 

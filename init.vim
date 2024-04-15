@@ -1,5 +1,4 @@
 lua require('init')
-
 " Cursor doesn't stick to top or bottom but stays away from it for 'n' lines
 set scrolloff=4
 " Shows file type at the bottom
@@ -24,6 +23,16 @@ let g:NERDSpaceDelims = 1
 " Temporal all comments are jsx-like for nerdcommenter while I'm fixing the
 " issue
 let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '{/*', 'right': '*/}' } , 'javascriptreact': { 'left': '{/*', 'right': '*/}' }}
+
+
+" Set up C++ formatter
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}
+
 
 " Encoding for vim-devicons
 set encoding=UTF-8
@@ -103,6 +112,8 @@ call plug#begin()
   Plug 'Olical/conjure'
   Plug 'Olical/nvim-local-fennel'
   Plug 'Olical/aniseed'
+  " C++ formatter
+  Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 lua << EOF
