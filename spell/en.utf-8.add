@@ -204,6 +204,7 @@ corejs
 intn
 yandex
 boosty
+<<<<<<< Updated upstream
 =======
 vinyutochkin
 hacky
@@ -264,3 +265,6 @@ malloc
 qsort
 calloc
 realloc
+=======
+zoxide
+>>>>>>> Stashed changes
