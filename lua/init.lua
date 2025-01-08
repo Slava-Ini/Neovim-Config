@@ -10,20 +10,20 @@ map("n", "<Leader>u", ":UndotreeToggle<CR>")
 map("n", "<Leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 map("n", "<Leader>a", ":lua require('harpoon.mark').add_file()<CR>")
 -- Markdown preview
-map("n", "<Leader>m", ":CocCommand markdown-preview-enhanced.openPreview<CR>")
+map("n", "<Leader>m", ":MarkdownPreviewToggle<CR>")
 -- No highlight search
 map("n", "<Esc>", ":noh<CR><Esc>")
 -- Exit insert mode 
 map("i", "jk", "<Esc>")
 map("i", "kj", "<Esc>")
 -- Paste from the clipboard
-map("n", "<Leader>p", "\"*p") 
+map("n", "<Leader>p", "\"*p")
 -- Open NERDTree
 map("n", "<C-b>", ":NERDTree %<CR>")
 -- File search
 map("n", "<C-p>", ":Files<CR>")
 -- Format document
-map("", "<Leader>f", ":CocCommand prettier.forceFormatDocument<CR>") 
+map("", "<Leader>f", ":CocCommand prettier.forceFormatDocument<CR>")
 -- Move lines up and down
 map("n", "<A-j>", ":m .+1<CR>")
 map("n", "<A-k>", ":m .-2<CR>")
@@ -33,11 +33,13 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 map("n", "<C-f>", ":Rg<CR>")
 -- Search and replace
 map("n", "<Leader>s", ":%s//ci<Left><Left><Left>")
-map("n", "<Leader>S", ":%s//i<Left><Left>")
+map("n", "<Leader>S", ":%s//cig<Left><Left>")
 -- Comment out selected or a line
-map("", "<C-_>", "<Plug>NERDCommenterToggle", { noremap = false, silent = true }) 
+map("", "<C-_>", "<Plug>NERDCommenterToggle", { noremap = false, silent = true })
 -- Show hover tip
 map("n", "K", ":call CocAction('doHover')<CR>", { noremap = false, silent = true})
+-- Show hover tip overloads
+map("n", "<Leader>K", ":call CocAction('doSignatureHelp')<CR>", { noremap = false, silent = true})
 -- Go to definition
 map("n", "gd", "<Plug>(coc-definition)", { noremap = false, silent = true})
 map("n", "gv", ":call CocAction('jumpDefinition', 'vsplit')<CR>", { noremap = false, silent = true})
@@ -45,22 +47,25 @@ map("n", "gh", ":call CocAction('jumpDefinition', 'split')<CR>", { noremap = fal
 -- Jump up and down to error
 map("n", "g[", "<Plug>(coc-diagnostic-prev)", { noremap = false, silent = true})
 map("n", "g]", "<Plug>(coc-diagnostic-next)", { noremap = false, silent = true})
--- Run error diagnosics
--- TODO: make better mapping
-map("n", "<Leader>d", "d :<C-u>CocList diagnostics<CR>", { noremap = false, silent = true})
+-- Run error diagnostics
+map("n", "<Leader>d", ":<C-u>CocList diagnostics<CR>", { noremap = true, silent = true})
 -- Code action
 map("n", "<C-Space>", "<Plug>(coc-codeaction)", { noremap = false, silent = true})
--- Save file
+-- Save fil
 map("", "<C-s>", ":w <CR>")
 -- Close file
 map("", "<Leader>q", ":q <CR>")
-
 -- Copy relative path (relative to where the buffer was open)
-map("", "<Leader>c", ":let @+=expand('%') <CR>") 
+map("", "<Leader>c", ":let @+=expand('%') <CR>")
 -- Copy full path 
-map("", "<Leader>C", ":let @+=expand('%:p') <CR>") 
+map("", "<Leader>C", ":let @+=expand('%:p') <CR>")
 -- Copy filename
-map("", "<Leader>n", ":let @+=expand('%:t') <CR>") 
+map("", "<Leader>n", ":let @+=expand('%:t') <CR>")
+
+-- Quick Fix List
+map("", "<Leader>j", ":cn <CR>")
+map("", "<Leader>k", ":cp <CR>")
+map("n", "<Leader>o", ":cdo %s//cg<Left><Left><Left>")
 
 -- Tabs
 map("n", "<C-l>h", ":tabr<CR>")
@@ -90,7 +95,7 @@ map("n", "<C-a>", "ggVG")
 map("n", "s", "<Plug>(leap-forward-to)")
 map("n", "S", "<Plug>(leap-backward-to)")
 map("n", "<Leader>g", "<Plug>(leap-from-window)")
--- TODO: figure out how to make shorcut for repeat
+-- TODO: figure out how to make shortcut for repeat
 -- require("leap").opts.special_keys.repeat_search = "<Leader>s"
 -- require('leap').leap { opts = { labels = {} } }
 -- map("n", "<Leader>s", ":LeapRepeat<CR>")

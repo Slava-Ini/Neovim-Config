@@ -2,11 +2,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "scss",
-    "javascript",
     "graphql",
     "html",
     "typescript",
-    "jsx",
     "tsx"
   ],
   "snippets.ultisnips.pythonPrompt": false,
@@ -15,8 +13,18 @@
     "default": true,
     "line_length": false
   },
-  "markdown-preview-enhanced.enableScriptExecution": true,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/17.0.3/clangd_17.0.3/bin/clangd",
+  "semanticTokens.enable": true,
   "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
-  "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+  "rust-analyzer.inlayHints.maxLength": 5,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json", "elm.toml"]
+    }
+  }
 }
