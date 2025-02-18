@@ -14,6 +14,8 @@ set expandtab
 " Makes one tab width to be 2 space
 set shiftwidth=2
 set splitbelow
+" Hide CMD when inactive
+set cmdheight=0
 " Makes search in files not include filename itself
 " TODO: make a lua function for it
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
